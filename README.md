@@ -5,3 +5,7 @@ This is a tutorial setting up webstorm and git on my pc.
 # test
 
 Confirm my git username is set correctly on commits.
+
+# test2
+
+Update GitKraken setting for username.
