@@ -1,0 +1,20 @@
+{
+  "name": "hello-world",
+  "version": "1.0.0",
+  "description": "This is a tutorial setting up webstorm and git on my pc.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darenyong/hello-world.git"
+  },
+  "author": "Daren Yong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/darenyong/hello-world/issues"
+  },
+  "homepage": "https://github.com/darenyong/hello-world#readme"
+}
