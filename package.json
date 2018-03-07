@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/darenyong/hello-world/issues"
   },
-  "homepage": "https://github.com/darenyong/hello-world#readme"
+  "homepage": "https://github.com/darenyong/hello-world#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
 }
