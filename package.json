@@ -18,6 +18,10 @@
   },
   "homepage": "https://github.com/darenyong/hello-world#readme",
   "dependencies": {
-    "express": "^4.16.2"
+    "config": "^1.30.0",
+    "express": "^4.16.2",
+    "sails-disk": "^1.0.0-12",
+    "sails-mongo": "^1.0.0-11",
+    "waterline": "^0.13.1"
   }
 }
