@@ -35,9 +35,8 @@ Waterline.start(waterlineConfig, function (err, orm) {
     const code = err.status || 500;
     const title = err.title || 'Error';
     const message = err.message || 'Error';
-    const resObj = req.app.get('env') === 'development' ?
-      JSON.stringify({ code: code, title: title, message: message })
-      : err;
+    const resObj = req.app.get('env') === 'development' ? err
+      : JSON.stringify({ code: code, title: title, message: message });
     res.status(code);
     next(resObj);
   });
