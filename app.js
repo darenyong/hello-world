@@ -31,8 +31,10 @@ Waterline.start(waterlineConfig, function (err, orm) {
 
   // error handler
   app.use(function (err, req, res, next) {
-    const response = req.app.get('env') === 'development' ? {} : err;
-    res.status(err.status || 500);
+    const code = err.status || 500;
+    const msg = { code: code, title: 'Internal Server Error' };
+    const response = req.app.get('env') === 'development' ? JSON.stringify(msg) : err;
+    res.status(code);
     next(response);
   });
 
