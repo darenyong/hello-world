@@ -25,6 +25,7 @@ Waterline.start(waterlineConfig, function (err, orm) {
     console.log('method', req.method, 'url', url, 'query', query);
 
     var err = new Error('Not Found');
+    err.title = 'Not Found';
     err.status = 404;
     next(err);
   });
@@ -32,10 +33,13 @@ Waterline.start(waterlineConfig, function (err, orm) {
   // error handler
   app.use(function (err, req, res, next) {
     const code = err.status || 500;
-    const msg = { code: code, title: 'Internal Server Error' };
-    const response = req.app.get('env') === 'development' ? JSON.stringify(msg) : err;
+    const title = err.title || 'Error';
+    const message = err.message || 'Error';
+    const resObj = req.app.get('env') === 'development' ?
+      JSON.stringify({ code: code, title: title, message: message })
+      : err;
     res.status(code);
-    next(response);
+    next(resObj);
   });
 
   var server = http.createServer(app);
