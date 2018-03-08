@@ -20,6 +20,10 @@ Waterline.start(waterlineConfig, function (err, orm) {
 
   // catch 404 and forward to error handler
   app.use(function (req, res, next) {
+    var url = decodeURI(req.url);
+    var query = JSON.stringify(req.query);
+    console.log('method', req.method, 'url', url, 'query', query);
+
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
