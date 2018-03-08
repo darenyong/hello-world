@@ -31,9 +31,9 @@ Waterline.start(waterlineConfig, function (err, orm) {
 
   // error handler
   app.use(function (err, req, res, next) {
-    // render the error page
+    const response = req.app.get('env') === 'development' ? {} : err;
     res.status(err.status || 500);
-    next(err);
+    next(response);
   });
 
   var server = http.createServer(app);
