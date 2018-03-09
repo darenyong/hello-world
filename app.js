@@ -42,6 +42,7 @@ Waterline.start(waterlineConfig, function (err, orm) {
   });
 
   var server = http.createServer(app);
+  console.log('using port', port);
   server.listen(port, function (err) {
     if (err) {
       console.error('failed to lift express');
