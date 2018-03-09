@@ -1,8 +1,9 @@
 var Waterline = require('waterline');
-var waterlineConfig = require('./waterline-config')
+var waterlineConfig = require('./waterline-config');
 var http = require('http');
 var express = require('express');
 var config = require('config');
+var moment = require('moment');
 var routes = require('./routes');
 
 const port = process.env.port || '8080';
@@ -22,7 +23,7 @@ Waterline.start(waterlineConfig, function (err, orm) {
   app.use(function (req, res, next) {
     var url = decodeURI(req.url);
     var query = JSON.stringify(req.query);
-    console.log('method', req.method, 'url', url, 'query', query);
+    console.log(moment().format('YYYY-MM-DD HH:mm:ss'),'method', req.method, 'url', url, 'query', query);
 
     var err = new Error('Not Found');
     err.title = 'Not Found';
