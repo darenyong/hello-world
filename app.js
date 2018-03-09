@@ -8,7 +8,7 @@ var routes = require('./routes');
 
 const port = process.env.port || '8080';
 
-
+console.log('starting waterline', moment().tz('America/Edmonton').format('YYYY-MM-DD HH:mm:ss'));
 Waterline.start(waterlineConfig, function (err, orm) {
   if (err) {
     console.error('could not start waterline\n', err);
@@ -43,7 +43,7 @@ Waterline.start(waterlineConfig, function (err, orm) {
   });
 
   var server = http.createServer(app);
-  console.log('using port', port);
+  console.log('using port', port, moment().tz('America/Edmonton').format('YYYY-MM-DD HH:mm:ss'));
   server.listen(port, function (err) {
     if (err) {
       console.error('failed to lift express');
