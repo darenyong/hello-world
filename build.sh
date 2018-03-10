@@ -2,7 +2,7 @@
 
 # clean out old containers and images before build
 docker stop my-hello
-docker rm -v -f my-hello
+docker rm my-hello
 docker rmi my-hello:1.0.0
 
 VERSION="1.0.0"
