@@ -4,7 +4,7 @@ docker rm my-hello
 
 docker run -d --name my-hello \
   -l "traefik.backend=my-hello" \
-  -l "traefik.frontend.rule=Host:darenyong.com" \
+  -l "traefik.frontend.rule=Host:darenyong.com,www.darenyong.com" \
   -l "traefik.enable=true" \
   -l "traefik.port=8080" \
   --network proxy \
