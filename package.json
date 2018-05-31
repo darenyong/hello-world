@@ -19,7 +19,9 @@
   "homepage": "https://github.com/darenyong/hello-world#readme",
   "dependencies": {
     "config": "^1.30.0",
+    "cookie-parser": "^1.4.3",
     "express": "^4.16.2",
+    "jsonwebtoken": "^8.2.2",
     "moment": "^2.21.0",
     "moment-timezone": "^0.5.14",
     "sails-disk": "^1.0.0-12",
