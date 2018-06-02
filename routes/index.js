@@ -10,10 +10,7 @@ var publicKey = fs.readFileSync(path.join(__dirname, '..', 'darenyong.pem'), 'ut
 // home page
 router.get('/', function (req, res, next) {
   // console.log('GET hello', moment().tz('America/Edmonton').format('YYYY-MM-DD HH:mm:ss'));
-  console.log('publicKey', publicKey);
-  console.log('cookies', req.cookies);
   const cookie = req.cookies['daren-auth-token'];
-  console.log('daren-auth-token', cookie);
 
   if (!cookie) {
     res.status(401);
@@ -21,6 +18,7 @@ router.get('/', function (req, res, next) {
     return;
   }
 
+  console.log('cookie found, verifying...');
   jwt.verify(cookie, publicKey, { algorithms: ['RS256'] }, function(err, decoded) {
     if (err) {
       console.log('verify token failed');
@@ -29,7 +27,7 @@ router.get('/', function (req, res, next) {
       return;
     }
     // TODO: token - confirm issuer, audience, and scope
-    console.log('decoded token', decoded);
+    console.log('verify token success', decoded);
     res.json({title: 'hello-world'});
   });
 });
