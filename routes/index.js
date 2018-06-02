@@ -6,11 +6,12 @@ var fs = require('fs');
 var path = require('path');
 
 var publicKey = fs.readFileSync(path.join(__dirname, '..', 'darenyong.pem'), 'utf-8');
+const cookieName = 'daren-auth-token';
 
 // home page
 router.get('/', function (req, res, next) {
   // console.log('GET hello', moment().tz('America/Edmonton').format('YYYY-MM-DD HH:mm:ss'));
-  const cookie = req.cookies['daren-auth-token'];
+  const cookie = req.cookies[cookieName];
 
   if (!cookie) {
     res.status(401);
