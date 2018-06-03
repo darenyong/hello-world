@@ -27,8 +27,8 @@ console.log('starting waterline', moment().tz('America/Edmonton').format('YYYY-M
     var query = JSON.stringify(req.query);
     console.log(moment().tz('America/Edmonton').format('YYYY-MM-DD HH:mm:ss'),'method', req.method, 'url', url, 'query', query);
 
-    var err = new Error('Not Found');
-    err.title = 'Not Found';
+    var err = new Error('hello-world Not Found');
+    err.title = 'hello-world Not Found';
     err.status = 404;
     next(err);
   });
